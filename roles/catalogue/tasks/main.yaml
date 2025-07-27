@@ -1,0 +1,56 @@
+- name: app setup
+  include_role:
+    name: common
+    tasks_from: app-setup.yaml
+
+- name: nodejs setup
+  include_role:
+    name: common
+    tasks_from: nodejs.yaml
+
+- name: copy mongodb repo
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: install mongodb client
+  ansible.builtin.dnf:
+    name: mongodb-mongosh
+    state: present
+
+- name: check products loaded or not
+  ansible.builtin.command: mongosh --host mongodb.malli.site  --eval  'db.getMongo().getDBNames().indexOf("catalogue")'   
+  register: catalogue_output
+  # ignore_errors: true
+  # ignore_unreachable: true
+
+- name: print catalogue output
+  ansible.builtin.debug:
+   msg: "{{ catalogue_output }}"
+  # ignore_errors: true
+  # ignore_unreachable: true
+
+- name: load products
+  ansible.builtin.shell: mongosh --host mongodb.malli.site < /app/db/master-data.js
+  when: catalogue_output.stdout | int < 0  
+  # ignore_errors: true
+  # ignore_unreachable: true
+
+- name: systemd setup
+  include_role:
+    name: common
+    tasks_from: systemd.yaml
+
+# - name: deployment
+#   tags:
+#    - deployment
+#   include_role:  #Tags and when conditions apply only to the include_role statement itself, not the tasks within the role.
+#     name: common
+#     tasks_from: deployment.yaml
+
+#- name: deployment
+#  tags:
+#   - deployment
+#  import_role:  #Tags and when conditions apply to the imported role and its tasks.
+#    name: common
+#    tasks_from: deployment.yaml 

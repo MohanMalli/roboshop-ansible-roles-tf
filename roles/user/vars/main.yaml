@@ -1,0 +1,2 @@
+REDIS_HOST: redis.malli.site
+MONGODB_HOST: mongodb.malli.site

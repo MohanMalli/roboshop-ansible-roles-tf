@@ -1,0 +1,5 @@
+CATALOGUE_HOST: catalogue.malli.site
+USER_HOST: user.malli.site
+CART_HOST: cart.malli.site
+SHIPPING_HOST: shipping.malli.site
+PAYMENT_HOST: payment.malli.site

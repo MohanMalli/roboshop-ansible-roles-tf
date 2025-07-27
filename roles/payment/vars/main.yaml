@@ -1,0 +1,5 @@
+CART_HOST: cart.malli.site
+USER_HOST: user.malli.site
+RABBITMQ_HOST: rabbitmq.malli.site
+RABBITMQ_USER: roboshop
+RABBITMQ_PASSWORD: roboshop123
