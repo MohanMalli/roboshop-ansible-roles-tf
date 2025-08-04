@@ -1,4 +1,4 @@
-MYSQL_HOST: mysql.malli.site
+MYSQL_HOST: mysql-{{ env }}.malli.site
 MYSQL_ROOT_USER: root
 MYSQL_ROOT_PASSWORD: RoboShop@1
-CART_HOST: cart.malli.site
+CART_HOST: cart.backend-{{ env }}.malli.site

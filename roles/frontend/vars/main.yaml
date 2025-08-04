@@ -1,5 +1,5 @@
-CATALOGUE_HOST: catalogue.malli.site
-USER_HOST: user.malli.site
-CART_HOST: cart.malli.site
-SHIPPING_HOST: shipping.malli.site
-PAYMENT_HOST: payment.malli.site
+CATALOGUE_HOST: catalogue.backend-{{ env }}.malli.site
+USER_HOST: user.backend-{{ env }}.malli.site
+CART_HOST: cart.backend-{{ env }}.malli.site
+SHIPPING_HOST: shipping.backend-{{ env }}.malli.site
+PAYMENT_HOST: payment.backend-{{ env }}.malli.site

@@ -1,2 +1,2 @@
-REDIS_HOST: redis.malli.site
-CATALOGUE_HOST: catalogue.malli.site
+REDIS_HOST: redis-{{ env }}.malli.site
+CATALOGUE_HOST: catalogue.backend-{{ env }}.malli.site
