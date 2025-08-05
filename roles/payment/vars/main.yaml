@@ -1,5 +1,5 @@
 CART_HOST: cart.backend-{{ env }}.malli.site
 USER_HOST: user.backend-{{ env }}.malli.site
-RABBITMQ_HOST: rabbitmq.backend-{{ env }}.malli.site
+RABBITMQ_HOST: rabbitmq-{{ env }}.malli.site
 RABBITMQ_USER: roboshop
 RABBITMQ_PASSWORD: roboshop123
